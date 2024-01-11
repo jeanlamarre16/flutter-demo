@@ -1,9 +1,8 @@
-class Article{
+class Article {
   String nom;
   String description;
   String categorie;
   final String image;
-  //num ou int en cents
   int prix;
 
   Article({
@@ -14,7 +13,8 @@ class Article{
     required this.prix,
   });
 
-  getPrixEuro() => "${prix/100}€";
+  /// Définition d'une fonction getPrixEuro qui renvoie le prix en euros
+  getPrixEuro() => "${prix / 100} €";
 
   Map<String, dynamic> toMap() {
     return {
@@ -37,7 +37,8 @@ class Article{
   }
 }
 
-void main(){
+/*
+void main() {
   final listArticles = <Article>[
     Article(
       nom: "MBP",
@@ -47,11 +48,8 @@ void main(){
       prix: 424900
     )
   ];
-  print("L'article ${listArticles[0].nom} est "
-      "en vente à  ${listArticles[0].getPrixEuro()}");
-  //Créer une liste d'articles
-  //print un article avec son nom et son prix
+  print("L'article ${listArticles[0].nom} est en vente à  ${listArticles[0].getPrixEuro()}");
 }
-
+*/
 
 
