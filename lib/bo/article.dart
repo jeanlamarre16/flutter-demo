@@ -37,19 +37,4 @@ class Article {
   }
 }
 
-/*
-void main() {
-  final listArticles = <Article>[
-    Article(
-      nom: "MBP",
-      description: "Ordinateur LowCost",
-      categorie: "Ordinateur Accessible",
-      image: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp16-spaceblack-select-202310?wid=904&hei=840&fmt=jpeg&qlt=95&.v=1697311054290",
-      prix: 424900
-    )
-  ];
-  print("L'article ${listArticles[0].nom} est en vente à  ${listArticles[0].getPrixEuro()}");
-}
-*/
-
 
