@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,7 +19,7 @@ class Paiement extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                 border: Border.all(),
-                borderRadius: BorderRadius.circular(20.0),
+                borderRadius: BorderRadius.circular(15.0),
             ),
 
               child: const Column(
@@ -34,6 +33,7 @@ class Paiement extends StatelessWidget {
                     )
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                         "Sous-total",
@@ -50,6 +50,7 @@ class Paiement extends StatelessWidget {
                 ),
 
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "vous économisez",
@@ -67,6 +68,7 @@ class Paiement extends StatelessWidget {
                 ),
 
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "TVA",
@@ -83,6 +85,7 @@ class Paiement extends StatelessWidget {
                   ],
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                         "TOTAL",
@@ -104,24 +107,74 @@ class Paiement extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+
+            const Text(
+                textAlign: TextAlign.left,
+                "Adresse de livraison",
+                style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                )
+            ),
+            Container(
+              margin: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                border: Border.all(),
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                      "Michel le Poney",
+                      style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold
+                      )
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                          "8 rue des ouvertures de portes",
+                          style: TextStyle(
+                              fontSize: 16.0)
+                      )
+                    ],
+                  ),
+
+                  Row(
+                    children: [
+                      Text(
+                          "93204 Corbeaux",
+                          style: TextStyle(
+                              fontSize: 16.0
+                          )
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(
               height: 8.0,
             ),
             const Spacer(),
-            Text(
+            const Text(
                 "En cliquant sur \"Confirmer l'achat\" vous acceptez les conditions de ventes d'EPSI Shop International. Besoin d'aide ? Désolé on ne peut rien faire.",
                 style: TextStyle(
                     fontSize: 12.0
                 )
             ),
-            Text(
+            const Text(
                 "En poursuivant vous acceptez les conditions d'utilisation du fournisseur du paiement CoffeeDis",
                 style: TextStyle(
                     fontSize: 12.0
                 )
             ),
             ElevatedButton(
-                child: Text("Confirmer l'achat"),
+                child: const Text("Confirmer l'achat"),
                 onPressed: ()=> context.go("/validation"),
             )
           ],
