@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../bo/article.dart';
 import '../bo/cart.dart';
@@ -21,7 +22,8 @@ class CartPage extends StatelessWidget {
                     prixEuro: cart.getTotalPrice(),
                   );
           },
-        ));
+        )
+    );
   }
 }
 
@@ -35,41 +37,49 @@ class ListCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("Votre panier toal est de "),
-                Text(
-                  prixEuro,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ],
+    children: [
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Votre panier toal est de "),
+            Text(
+              prixEuro,
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
-          ),
-          Divider(),
-          Expanded(
-            child: ListView.builder(
-                itemCount: listArticles.length,
-                itemBuilder: (context, index) => ListTile(
-                      title: Text(listArticles[index].nom),
-                      subtitle: Text(listArticles[index].getPrixEuro()),
-                      leading: Image.network(
-                        listArticles[index].image,
-                        width: 80,
-                      ),
-                      trailing: TextButton(
-                        child: Text("SUPPRIMER"),
-                        onPressed: () {
-                          context.read<Cart>().remove(listArticles[index]);
-                        },
-                      ),
-                    )),
-          ),
-        ],
-      );
+          ],
+        ),
+      ),
+
+      Divider(),
+
+      Expanded(
+        child: ListView.builder(
+          itemCount: listArticles.length,
+          itemBuilder: (context, index) => ListTile(
+            title: Text(listArticles[index].nom),
+            subtitle: Text(listArticles[index].getPrixEuro()),
+            leading: Image.network(
+              listArticles[index].image,
+              width: 80,
+            ),
+            trailing: TextButton(
+              child: Text("SUPPRIMER"),
+              onPressed: () {
+                context.read<Cart>().remove(listArticles[index]);
+              },
+            ),
+          )
+        ),
+      ),
+
+      ElevatedButton(
+        onPressed: ()=> context.go("/paiement"),
+          child: const Text('Procéder au paiement'),
+      ),
+    ],
+  );
 }
 
 class EmptyCart extends StatelessWidget {
